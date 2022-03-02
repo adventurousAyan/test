@@ -1,1 +1,129 @@
-<mxfile host="app.diagrams.net" modified="2022-03-02T11:00:24.459Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36" version="16.6.2" etag="QsfGbCEs9P_9V4EagZgK" type="github"><diagram id="Cmb6Y8wILAqnmDr7faR3">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2022-03-02T11:46:42.485Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36" etag="5zIrDdrt5FhnWKd6dHAy" version="16.6.2" type="github">
+  <diagram id="Cmb6Y8wILAqnmDr7faR3" name="Page-1">
+    <mxGraphModel dx="1379" dy="771" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="dhD3YD7b5aUZ2z6ylpIw-26" target="dhD3YD7b5aUZ2z6ylpIw-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="35" y="550" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-26" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="780" y="210" width="620" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-1" value="&lt;div&gt;&lt;b&gt;In your platform create a deployment service which can be used by different DS to upload and host their model&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;Once the model is hosted they should get a rest API where their model can be called for prediction&lt;/b&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="560" y="40" width="490" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-2" value="So the solution to this can be we will be having an api to deploy their models. The DS Teams can all an API &lt;i&gt;/&lt;/i&gt;&lt;b&gt;&lt;i&gt;api/deploy&amp;nbsp;&lt;/i&gt;&lt;/b&gt;&amp;nbsp;and pass their deployment object as above. Once Platform gets the request, the following steps are executed.&lt;br&gt;&lt;br&gt;&lt;b&gt;DeployHelper&lt;/b&gt; :- The DeployHelper intercepts the request and creates the deployment Object that the user has passed. Also calls oAuth IDCS to fetch the user who has tried to call api and append it to request body&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Deployment Preprocessor:&lt;/b&gt;- The DeployPreprocessor class receives the deployment object and validates whether the request is valid or not. It has set of validators by which it can decide. For eg:- If we pass the modelFormat an UNKNOWN Type or modelPathtype as UNKNOWN and not within the set of model storages that we support, its going to return an invalid response with proper error code and message. It will also fetch the model from the source path based if validation is successful&lt;br&gt;&lt;br&gt;&lt;b&gt;AbstractDeployer:-&lt;/b&gt; Once the validation is successful , the flow get passed to the AbstractDeployer. I am trying to think of a Factory pattern over here. So, based on the modelPathType which can be either ObjectStore, NFS or ModelRegistry, it will instantiate an object of the appropriate class and then deploy the model.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;ObjectStoreDeployer&lt;/b&gt; - This deployer has a deploy method and once called, it will check the modelDestinationPath and from it , it will parse the url and get the bucket information and will save the model and call the generateUrlMethod to return the url&lt;br&gt;&lt;br&gt;&amp;nbsp; &lt;b&gt;NFSDeployer&lt;/b&gt; - This deployer has a deploy method and once called, it will check the modelDestinationPath and from it , it will parse the url and save model in the appropriate directory and call the generateUrl Method&lt;br&gt;&lt;br&gt;&lt;b&gt;ModelRegistry&lt;/b&gt; - This also has a deploy method and will perform the same as above.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#ff3333&quot;&gt;&lt;i&gt;***If any of the above deploy method fails, a error message would be returned to the user with a proper error code&lt;/i&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="660" width="1200" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-3" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="20" y="306" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="dhD3YD7b5aUZ2z6ylpIw-4" target="dhD3YD7b5aUZ2z6ylpIw-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-4" value="&lt;b&gt;/api/deploy(POST)&lt;br&gt;&lt;br&gt;{&lt;br&gt;&lt;/b&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px ; border: none ; padding: 0px&quot;&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px ; border: none ; padding: 0px&quot;&gt;&lt;b&gt;&amp;nbsp; modelName: *&lt;/b&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px ; border: none ; padding: 0px&quot;&gt;&lt;b&gt;&amp;nbsp; &amp;nbsp; modelVersion: *&lt;/b&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px ; border: none ; padding: 0px&quot;&gt;&lt;b&gt;&amp;nbsp; &amp;nbsp;modelFormat *&lt;/b&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px ; border: none ; padding: 0px&quot;&gt;&lt;b&gt;modelSourcePath *&lt;/b&gt;&lt;b&gt;,&lt;/b&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px ; border: none ; padding: 0px&quot;&gt;&lt;b&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; modelPathType *&lt;/b&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px ; border: none ; padding: 0px&quot;&gt;&lt;b&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;modelExplainer **&lt;/b&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px ; border: none ; padding: 0px&quot;&gt;&lt;b&gt;productName,&lt;/b&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px ; border: none ; padding: 0px&quot;&gt;&lt;b&gt;clientId&lt;/b&gt;&lt;/blockquote&gt;&lt;/blockquote&gt;&lt;b&gt;&lt;br&gt;}&lt;br&gt;&lt;/b&gt;" style="shape=card;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="238" width="230" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;fontColor=#FF3333;" edge="1" parent="1" source="dhD3YD7b5aUZ2z6ylpIw-6" target="dhD3YD7b5aUZ2z6ylpIw-42">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-6" value="DeployHelper" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="330" y="277" width="180" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-7" value="modelJsonObject" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="dhD3YD7b5aUZ2z6ylpIw-6">
+          <mxGeometry y="26" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-8" value="deployModel(modelJsonObject)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="dhD3YD7b5aUZ2z6ylpIw-6">
+          <mxGeometry y="56" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-10" value="AbstractDeployer" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="949" y="250" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-12" value="deploy()&#xa;generateUrl()" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="dhD3YD7b5aUZ2z6ylpIw-10">
+          <mxGeometry y="26" width="170" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="dhD3YD7b5aUZ2z6ylpIw-14" target="dhD3YD7b5aUZ2z6ylpIw-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-14" value="ObjectStoreDeployer" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+          <mxGeometry x="789" y="440" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-15" value="+deploy()&#xa;&#xa;+ generateUrl()&#xa;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="dhD3YD7b5aUZ2z6ylpIw-14">
+          <mxGeometry y="30" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="dhD3YD7b5aUZ2z6ylpIw-18">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1009" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-18" value="NFSDeployer" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1009" y="440" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-19" value="+deploy()&#xa;&#xa;+generateUrl" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="dhD3YD7b5aUZ2z6ylpIw-18">
+          <mxGeometry y="30" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="dhD3YD7b5aUZ2z6ylpIw-20" target="dhD3YD7b5aUZ2z6ylpIw-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-20" value="ModelRegistryDeployer" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1219" y="440" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-21" value="deploy()&#xa;&#xa;generateUrl()&#xa;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="dhD3YD7b5aUZ2z6ylpIw-20">
+          <mxGeometry y="30" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="dhD3YD7b5aUZ2z6ylpIw-28" target="dhD3YD7b5aUZ2z6ylpIw-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="650" y="470" />
+              <mxPoint x="35" y="470" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-28" value="DeploymentPreprocessor" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="540" y="277" width="170" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-29" value="validateDeploymentObject" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="dhD3YD7b5aUZ2z6ylpIw-28">
+          <mxGeometry y="26" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-31" value="validateExplainer()&#xa;fetchmodelFromSource()&#xa;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="dhD3YD7b5aUZ2z6ylpIw-28">
+          <mxGeometry y="56" width="170" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="dhD3YD7b5aUZ2z6ylpIw-7" target="dhD3YD7b5aUZ2z6ylpIw-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.005;entryY=0.305;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="dhD3YD7b5aUZ2z6ylpIw-29" target="dhD3YD7b5aUZ2z6ylpIw-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-36" value="success" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="720" y="290" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-38" value="failure" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="455" y="440" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-40" value="generatedURL" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="360" y="510" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.025;entryY=0.633;entryDx=0;entryDy=0;entryPerimeter=0;fontColor=#FF3333;" edge="1" parent="1" source="dhD3YD7b5aUZ2z6ylpIw-42" target="dhD3YD7b5aUZ2z6ylpIw-44">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-42" value="&lt;font color=&quot;#000000&quot;&gt;Use Oauth to find the user who has deployed the model&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=#FF3333;" vertex="1" parent="1">
+          <mxGeometry x="440" y="150" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;fontColor=#000000;" edge="1" parent="1" source="dhD3YD7b5aUZ2z6ylpIw-44" target="dhD3YD7b5aUZ2z6ylpIw-42">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-44" value="&lt;font color=&quot;#000000&quot;&gt;IDCS Manager&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=#FF3333;" vertex="1" parent="1">
+          <mxGeometry x="660" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="dhD3YD7b5aUZ2z6ylpIw-47" value="client id, secret" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="580" y="140" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
