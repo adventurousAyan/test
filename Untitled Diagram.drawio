@@ -1,1 +1,112 @@
-<mxfile host="app.diagrams.net" modified="2022-08-26T19:25:19.859Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36" version="20.2.4" etag="0zvSeektZPEXRvMrRY_t" type="github"><diagram id="tckqmlnDSCY5Q0eiSe-v">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2022-08-26T20:15:23.068Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36" etag="ZDqfVCRvs_HXUu74geeQ" version="20.2.4" type="github">
+  <diagram id="tckqmlnDSCY5Q0eiSe-v" name="Page-1">
+    <mxGraphModel dx="1372" dy="769" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-1" value="ParkingLot" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+          <mxGeometry x="260" y="60" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-2" value="+List&lt;ParkingFloors&gt;&#xa;Address address" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="ZhYZDJzJdfVgOa59ws-f-1">
+          <mxGeometry y="30" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-3" value="Vehicle" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+          <mxGeometry x="110" y="240" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-4" value="+RegistrationNumber&#xa;+VehicleType(Enum)&#xa;+VehicleColor" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="ZhYZDJzJdfVgOa59ws-f-3">
+          <mxGeometry y="30" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-16" value="ParkingType" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+          <mxGeometry x="370" y="240" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-17" value="+ParkingTypeId&#xa;+ParkingTypeName&#xa;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="ZhYZDJzJdfVgOa59ws-f-16">
+          <mxGeometry y="30" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-19" value="ParkingFloor" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="410" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-20" value="+FloorId&#xa;+ParkingLotId&#xa;+List&lt;ParkingSlot&gt;&#xa;+ParkingDashboard" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="ZhYZDJzJdfVgOa59ws-f-19">
+          <mxGeometry y="30" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-21" value="ParkingSlot" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+          <mxGeometry x="270" y="410" width="280" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-22" value="+ParkingSlotId&#xa;+FloorId&#xa;+Map&lt;ParkingTypeId, List&lt;ParkingSpots&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="ZhYZDJzJdfVgOa59ws-f-21">
+          <mxGeometry y="30" width="280" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-23" value="ParkingSpot" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+          <mxGeometry x="630" y="400" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-24" value="+SpotId&#xa;+IsVacant&#xa;+VehicleId" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="ZhYZDJzJdfVgOa59ws-f-23">
+          <mxGeometry y="30" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-25" value="ParkingDashboard" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+          <mxGeometry x="40" y="585" width="200" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-26" value="+FloorId&#xa;+DashboardId&#xa;+Map&lt;ParkingTypeId, VacantCount&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="ZhYZDJzJdfVgOa59ws-f-25">
+          <mxGeometry y="30" width="200" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-27" value="Gate" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+          <mxGeometry x="340" y="570" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-28" value="+GateId&#xa;+GateName&#xa;+GateType&#xa;+ ParkingAttendent" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="ZhYZDJzJdfVgOa59ws-f-27">
+          <mxGeometry y="30" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-29" value="EntryGate" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+          <mxGeometry x="240" y="750" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-30" value="+GateId&#xa;+GateName&#xa;+generateTicket()" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="ZhYZDJzJdfVgOa59ws-f-29">
+          <mxGeometry y="30" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="ZhYZDJzJdfVgOa59ws-f-28">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="750" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="300" y="750" />
+              <mxPoint x="300" y="645" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ZhYZDJzJdfVgOa59ws-f-32" target="ZhYZDJzJdfVgOa59ws-f-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-32" value="Exit Gate" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+          <mxGeometry x="480" y="750" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-33" value="+GateId&#xa;+GateName&#xa;+processPayment()" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="ZhYZDJzJdfVgOa59ws-f-32">
+          <mxGeometry y="30" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-35" value="ParkingAttendent" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+          <mxGeometry x="40" y="800" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-36" value="+Account attendant&#xa;+GateId&#xa;+generateTicket()" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="ZhYZDJzJdfVgOa59ws-f-35">
+          <mxGeometry y="30" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-37" value="Account" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+          <mxGeometry x="640" y="230" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-38" value="+AccountId&#xa;+AccountName&#xa;+EmailAdress&#xa;+PhoneNumer&#xa;+AccountType" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="ZhYZDJzJdfVgOa59ws-f-37">
+          <mxGeometry y="30" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-40" value="ParkingTicket" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+          <mxGeometry x="310" y="900" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-41" value="+TicketId&#xa;+StartTime&#xa;+VehicleRegistrationNo&#xa;+ VehicleType&#xa;+ParkingAttendantId" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="ZhYZDJzJdfVgOa59ws-f-40">
+          <mxGeometry y="30" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-42" value="Payment" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+          <mxGeometry x="640" y="610" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-43" value="TransactionId&#xa;+TotalAmount&#xa;+UserId&#xa;+VehicleId&#xa;+TransactionStatus" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="ZhYZDJzJdfVgOa59ws-f-42">
+          <mxGeometry y="30" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-44" value="Address" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+          <mxGeometry x="540" y="60" width="180" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="ZhYZDJzJdfVgOa59ws-f-45" value="+LocationId&#xa;+LocationName&#xa;+Area&#xa;+Neighborhood&#xa;+ Zip&#xa;BuildingId" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="ZhYZDJzJdfVgOa59ws-f-44">
+          <mxGeometry y="30" width="180" height="110" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
